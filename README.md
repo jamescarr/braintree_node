@@ -17,7 +17,7 @@ it in production.
 
 ## Quick Start
 
-    var sys = require('sys'),
+    var util = require('util'),
         _ = require('underscore')._,
         braintree = require('braintree-node/lib/braintree');
 
@@ -38,20 +38,20 @@ it in production.
       },
       function (err, response) {
         if (err) {
-          sys.puts(err.message);
+          util.puts(err.message);
           return;
         }
 
         if (response.success) {
-          sys.puts('Transaction id: ' + response.transaction.id);
-          sys.puts('Transaction status: ' + response.transaction.status);
-          sys.puts('Transaction amount: ' + response.transaction.amount);
+          util.puts('Transaction id: ' + response.transaction.id);
+          util.puts('Transaction status: ' + response.transaction.status);
+          util.puts('Transaction amount: ' + response.transaction.amount);
         } else {
           if (response.transaction) {
-            sys.puts('Transaction status: ' + response.transaction.status);
+            util.puts('Transaction status: ' + response.transaction.status);
           } else {
             _.each(response.errors.deepErrors(), function (error) {
-              sys.puts(error.message);
+              util.puts(error.message);
             });
           }
         }
