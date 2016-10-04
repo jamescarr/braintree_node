@@ -1,9 +1,9 @@
-GLOBAL.sys = require('sys');
+GLOBAL.util = require('util');
 GLOBAL.vows = require('vows');
 GLOBAL.assert = require('assert');
 
 GLOBAL.inspect = function (object) {
-  sys.puts(sys.inspect(object));
+  util.puts(util.inspect(object));
 };
 
 GLOBAL.braintree = require('./../lib/braintree');
